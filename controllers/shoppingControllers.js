@@ -52,6 +52,35 @@ export const getShoppingById = async (req, res) => {
   }
 }
 
+//@desc       update product
+//@route      PUT /api/shopping/:id
+//@access     private/login
+export const updateShopping = async (req, res) => {
+  try {
+    const { 
+      createddate,
+      name,
+    } = req.body
+  
+    const shopping = await Shopping.findById(req.params.id)
+  
+    if(shopping) {
+      shopping.name = name || shopping.name
+      shopping.createddate = createddate || shopping.createddate
+      
+  
+      const updatedShopping = await shopping.save()
+      res.json(updatedShopping)
+  
+    } else{
+      res.status(404)
+      throw new Error('Product not found')
+    }
+  } catch (error) {
+    res.status(500).json({message: error.message})
+  }
+}
+
 //@desc       Admin: delete shopping
 //@route      GET /api/shopping/:id
 //@access     private/login

@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "f11014a7-437c-4864-afda-c1e0878bc9f7",
+		"name": "bts-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST  /api/users/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"test3\",\n    \"email\": \"test3@gmail.com\",\n    \"encrypted_password\": \"12341234\",\n    \"phone\": \"099797687\",\n    \"address\": \"bandung\",\n    \"city\": \"bandung\",\n    \"country\": \"indo\",\n    \"name\": \"test3\",\n    \"postcode\": \"12234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"signup"
+					]
+				},
+				"description": "register new user"
+			},
+			"response": []
+		},
+		{
+			"name": "POST /api/user/siginin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test3@gmail.com\",\n    \"password\": \"12341234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTNiYjJhZTlhOTRjNTliMmJmZWE2YiIsImlhdCI6MTYwNDU2NzE2MiwiZXhwIjoxNjA0NjUzNTYyfQ.oYaQAbdGAfZiOvz4r8NF-RijRFl5b8MGUIIVQSFOC_w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				},
+				"description": "GET all user (login user only)"
+			},
+			"response": []
+		},
+		{
+			"name": "POST /api/shopping",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTNiYjJhZTlhOTRjNTliMmJmZWE2YiIsImlhdCI6MTYwNDU2NzE2MiwiZXhwIjoxNjA0NjUzNTYyfQ.oYaQAbdGAfZiOvz4r8NF-RijRFl5b8MGUIIVQSFOC_w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"createddate\": \"2020-03-18\",\n    \"name\": \"lemari\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/shopping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"shopping"
+					]
+				},
+				"description": "POST create new shopping(login only)"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/shopping",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTNiYjJhZTlhOTRjNTliMmJmZWE2YiIsImlhdCI6MTYwNDU2NzE2MiwiZXhwIjoxNjA0NjUzNTYyfQ.oYaQAbdGAfZiOvz4r8NF-RijRFl5b8MGUIIVQSFOC_w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/shopping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"shopping"
+					]
+				},
+				"description": "GET all shopping login only"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/shopping/:id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTNiYjJhZTlhOTRjNTliMmJmZWE2YiIsImlhdCI6MTYwNDU2NzE2MiwiZXhwIjoxNjA0NjUzNTYyfQ.oYaQAbdGAfZiOvz4r8NF-RijRFl5b8MGUIIVQSFOC_w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/shopping/5fa3ca85b8437b69d77d0bfa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"shopping",
+						"5fa3ca85b8437b69d77d0bfa"
+					]
+				},
+				"description": "GET shopping by id"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /api/shopping/:id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTNiYjJhZTlhOTRjNTliMmJmZWE2YiIsImlhdCI6MTYwNDU2NzE2MiwiZXhwIjoxNjA0NjUzNTYyfQ.oYaQAbdGAfZiOvz4r8NF-RijRFl5b8MGUIIVQSFOC_w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/shopping/5fa3c836b707b2673b234ba5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"shopping",
+						"5fa3c836b707b2673b234ba5"
+					]
+				},
+				"description": "DELETE shopping by id login only"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /api/shopping/:id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTNiYjJhZTlhOTRjNTliMmJmZWE2YiIsImlhdCI6MTYwNDU2NzE2MiwiZXhwIjoxNjA0NjUzNTYyfQ.oYaQAbdGAfZiOvz4r8NF-RijRFl5b8MGUIIVQSFOC_w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"baju diedit\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/shopping/5fa3c4a7dcbcb4636ec0cc85",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"shopping",
+						"5fa3c4a7dcbcb4636ec0cc85"
+					]
+				},
+				"description": "update shopping login only"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
