@@ -51,3 +51,23 @@ export const getShoppingById = async (req, res) => {
     res.status(500).json({message: error.message})
   }
 }
+
+//@desc       Admin: delete shopping
+//@route      GET /api/shopping/:id
+//@access     private/login
+export const deleteShopping = async (req, res) => {
+  try {
+    const shopping = await Shopping.findById(req.params.id)
+
+    if(shopping) {
+      await shopping.remove()
+      res.json({ success: true, message: 'shopping removed' })
+      
+    } else {
+      res.status(404)
+      throw new Error('shopping not found')
+    }
+  } catch (error) {
+    res.status(500).json({message: error.message})
+  }
+}
