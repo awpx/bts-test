@@ -32,3 +32,22 @@ export const getShoppings = async (req, res) => {
     res.status(500).json({message: error.message})
   }
 }
+
+//@desc       GET single product
+//@route      GET /api/shopping/:id
+//@access     private/login only
+export const getShoppingById = async (req, res) => {
+  try {
+    const shopping = await Shopping.findById(req.params.id)
+
+    if(shopping) {
+      res.json(shopping)
+      
+    } else {
+      res.status(404)
+      throw new Error('shopping not found')
+    }
+  } catch (error) {
+    res.status(500).json({message: error.message})
+  }
+}
