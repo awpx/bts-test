@@ -19,3 +19,16 @@ export const createShopping=  async (req, res) => {
     res.status(500).json({message: error.message})
   }
 }
+
+//@desc       get all shopping
+//@route      GET /api/shopping
+//@access     private/login only
+export const getShoppings = async (req, res) => {
+  try {
+    const shoppings = await Shopping.find({})
+
+    res.json(shoppings)
+  } catch (error) {
+    res.status(500).json({message: error.message})
+  }
+}
