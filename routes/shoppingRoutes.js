@@ -1,3 +1,8 @@
-const router = require('express').Router()
+import express from 'express'
+import { createShopping }  from '../controllers/shoppingControllers.js'
+const router = express.Router()
+import { protect } from '../middleware/authMiddleware.js'
 
-module.exports = router
+router.route('/').post(protect, createShopping)
+
+export default router
