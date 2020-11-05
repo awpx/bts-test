@@ -69,3 +69,16 @@ export const registerUser = async (req, res) => {
     res.status(500).json({message: error.message})
   }
 }
+
+//@desc       get all user
+//@route      GET /api/users/
+//@access     private/login only
+export const getUsers = async (req, res) => {
+  try {
+    const users = await User.find({})
+
+    res.json(users)
+  } catch (error) {
+    
+  }
+}
